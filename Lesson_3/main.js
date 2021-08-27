@@ -3,7 +3,7 @@ console.log('\nЗадание 1')
 let i = 2
 let isPrime = true
 loop: while (i<100){
-    for (let j = 2; j < i; j++) {
+    for (let j = 2; j < Math.sqrt(i); j++) {
         if (i%j === 0) {
             i++
             continue loop
