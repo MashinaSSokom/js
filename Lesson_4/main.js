@@ -62,5 +62,11 @@ class Product {
     }
 }
 
-let product1 = new Product('product 1', 100, 'this is just product 1', 1, 'imgURL')
+let product1 = new Product(
+    'product 1',
+    100,
+    'this is just product 1',
+    1,
+    'imgURL'
+)
 console.log(product1)
