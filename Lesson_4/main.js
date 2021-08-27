@@ -50,3 +50,17 @@ let product = {
     availableQuantity: 0,
     image: 'url'
 }
+
+// Если перенести в класс
+class Product {
+    constructor(name, price, description, availableQuantity, image) {
+        this.name = name
+        this.price = price
+        this.description = description
+        this.availableQuantity = availableQuantity
+        this.image = image
+    }
+}
+
+let product1 = new Product('product 1', 100, 'this is just product 1', 1, 'imgURL')
+console.log(product1)
