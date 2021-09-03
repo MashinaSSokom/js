@@ -4,6 +4,7 @@
 function chess_generation() {
     let task_1 = document.createElement('div')
     task_1.className = 'task-1'
+    task_1.textContent = 'Задание №1'
     document.body.insertAdjacentElement("afterbegin", task_1)
 
     let symbols_letters = document.createElement('div')
@@ -128,3 +129,55 @@ function chess_generation() {
 chess_generation()
 
 // №2
+// Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре.
+// Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+// a. Пустая корзина должна выводить строку «Корзина пуста»;
+// b. Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+
+
+function basket_generation(products) {
+    console.log(products)
+    let task_2 = document.querySelector('.task-2')
+    basket = document.createElement('div')
+    basket.className = 'basket'
+    task_2.appendChild(basket)
+    basket.style.cssText = `display: flex;
+    flex-wrap: wrap;
+    justify-content: begin;
+    border: 1px solid black;`
+    if (products.length > 0) {
+        basket.insertAdjacentHTML('beforebegin',
+            `<p>В корзине: ${products.length} позиций на сумму 
+                    ${products.reduce(function (sum, temp) {
+                        return sum + temp.price
+            }, 0)}</p>
+                  <p style="font-size: large">Товары в корзине:<p/>`)
+        for (let i = 0; i < products.length; i++) {
+            let basket_item = document.createElement('div')
+            basket_item.className = 'basket-item'
+            basket_item.style.cssText = ` width: 250px;
+            height: 350px;
+            border: 1px solid`
+            basket_item.insertAdjacentHTML("afterbegin", ` <p>Название: ${products[i].name}</p> 
+                                                                      <p>Стоимость: ${products[i].price}</p> `)
+            basket.appendChild(basket_item)
+        }
+    } else {
+        basket.textContent = 'Корзина пуста!'
+    }
+
+
+}
+
+let basket_ex_1 = [
+    {'name': 'product 1','price': 100},
+    {'name': 'product 2','price': 150},
+    {'name': 'product 2','price': 150},
+    {'name': 'product 2','price': 150},
+    {'name': 'product 2','price': 150},
+    {'name': 'product 2','price': 150},
+    {'name': 'product 3','price': 215}]
+
+let basket_ex_2 = []
+
+basket_generation(basket_ex_1)
