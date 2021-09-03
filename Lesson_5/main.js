@@ -2,14 +2,14 @@
 // Можно использовать любые html-теги. Доска должна быть верно разлинована на черные и белые ячейки.
 // Строки должны нумероваться числами от 1 до 8, столбцы — латинскими буквами A, B, C, D, E, F, G, H.
 function chess_generation() {
-    let chess = document.querySelector(".chess")
-    chess.style.cssText = `width: 800px;
-    height: 800px;
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;`
-    let symbols = document.querySelector('.symbols-letters')
-    symbols.style.cssText = `width: 900px; 
+    let task_1 = document.createElement('div')
+    task_1.className = 'task-1'
+    document.body.insertAdjacentElement("afterbegin", task_1)
+
+    let symbols_letters = document.createElement('div')
+    symbols_letters.className = 'symbols-letters'
+    task_1.appendChild(symbols_letters)
+    symbols_letters.style.cssText = `width: 900px; 
     height: 100px; 
     display: flex;`
     let symbol = document.createElement('div')
@@ -18,7 +18,7 @@ function chess_generation() {
         display: flex; 
         align-items: center; 
         justify-content: center;`
-    symbols.appendChild(symbol)
+    symbols_letters.appendChild(symbol)
 
     for (let i = 0; i < 8; i++) {
         let symbol = document.createElement('div')
@@ -27,7 +27,7 @@ function chess_generation() {
         display: flex; 
         align-items: center; 
         justify-content: center;`
-        symbols.appendChild(symbol)
+        symbols_letters.appendChild(symbol)
         switch (i) {
             case 0:
                 symbol.insertAdjacentHTML("afterbegin", '<p align="center">A</p>')
@@ -54,10 +54,17 @@ function chess_generation() {
                 symbol.insertAdjacentHTML("afterbegin", '<p align="center">H</p>')
                 break
         }
-        symbols.appendChild(symbol)
-
+        symbols_letters.appendChild(symbol)
     }
-    let symbols_num = document.querySelector('.symbols-numbers')
+
+    let container = document.createElement('div')
+    container.className = 'container'
+    container.style.display = 'flex'
+    task_1.appendChild(container)
+
+
+    let symbols_num = document.createElement('div')
+    symbols_num.className = 'symbols-numbers'
     symbols_num.style.cssText = `width: 100px; 
     height: 800px; 
     display: flex;
@@ -97,7 +104,16 @@ function chess_generation() {
         }
         symbols_num.appendChild(symbol)
     }
+    container.appendChild(symbols_num)
 
+    let chess = document.createElement("div")
+    chess.className = 'chess'
+    chess.style.cssText = `width: 800px;
+    height: 800px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;`
+    container.appendChild(chess)
     for (let i = 0; i < 64; i++) {
         let chess_field = document.createElement('div')
         chess_field.className = 'chess_field'
