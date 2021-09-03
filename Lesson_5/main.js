@@ -143,8 +143,7 @@ function basket_generation(products) {
     task_2.appendChild(basket)
     basket.style.cssText = `display: flex;
     flex-wrap: wrap;
-    justify-content: begin;
-    border: 1px solid black;`
+    justify-content: begin;`
     if (products.length > 0) {
         basket.insertAdjacentHTML('beforebegin',
             `<p>В корзине: ${products.length} позиций на сумму 
@@ -155,11 +154,11 @@ function basket_generation(products) {
         for (let i = 0; i < products.length; i++) {
             let basket_item = document.createElement('div')
             basket_item.className = 'basket-item'
-            basket_item.style.cssText = ` width: 250px;
-            height: 350px;
+            basket_item.style.cssText = ` width: 200px;
+            height: 250px;
             border: 1px solid`
-            basket_item.insertAdjacentHTML("afterbegin", ` <p>Название: ${products[i].name}</p> 
-                                                                      <p>Стоимость: ${products[i].price}</p> `)
+            basket_item.insertAdjacentHTML("afterbegin", ` <p style="text-align: center">Название: ${products[i].name}</p> 
+                                                                      <p style="text-align: center">Стоимость: ${products[i].price}</p> `)
             basket.appendChild(basket_item)
         }
     } else {
@@ -181,3 +180,5 @@ let basket_ex_1 = [
 let basket_ex_2 = []
 
 basket_generation(basket_ex_1)
+
+// p.s. нужно подать массив в функцию
