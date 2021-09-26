@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson_7</title>
+    <script src="main.js"></script>
+    <style type="text/css">
+    .snake {
+        background-color: white !important;
+    }
+    .food {
+        background-color: red !important;
+    }
+    .wall {
+        background-color: grey !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="init-params" style="margin-bottom: 10px">
+        <div>
+            <label for="field-size"> Размер поля, n*n</label>
+            <input type="text" id="field-size">
+        </div>
+        <div>
+            <label for="snake-speed">Скорость змейки, клеток/сек</label>
+            <input type="text" id="snake-speed">
+        </div>
+        <button id="start-game" onclick="init()">Начать игру</button>
+    </div>
+
+    <div class="container">
+        <span id="score">Счет: 0</span>
+        <table id="game-field"></table>
+    </div>
+</body>
+</html>
