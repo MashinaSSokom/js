@@ -30,7 +30,6 @@ function startGame() {
     spawnFood()
     window.gameId = setInterval(move, 1000/snakeSpeed)
     setTimeout(spawnWall, 5000)
-    //    Проверка победы
 }
 
 function spawnFood() {
@@ -98,7 +97,7 @@ function move() {
 
 
     if ((coords[0].x == -1 || coords[0].y == -1 || coords[0].x == fieldSize || coords[0].y == fieldSize) || checkIntersection(coords) || JSON.stringify(coords[0]) == JSON.stringify(wallCoords)) {
-        alert('Вы проиграли!')
+        alert('Вы проиграли! Нажите R для перезапуска')
         clearInterval(gameId)
         return
     } else if (foodCoords){
